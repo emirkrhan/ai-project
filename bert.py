@@ -78,7 +78,7 @@ def predict_text(text):
     predicted_label = label_encoder.inverse_transform([predicted_label_idx])[0]
     return predicted_label
 
-example_text = "Example text to predict."
+example_text = "Advertised amenities like the spa and gym were under maintenance during our entire visit, which was extremely frustrating and not communicated beforehand."
 predicted_label = predict_text(example_text)
 print(f"Predicted Label: {predicted_label}")
 

@@ -21,10 +21,10 @@ class TextCleaner():
         return text
 
 cleaner = TextCleaner()
-df['cleaned_text'] = df['text'].apply(cleaner.clean_text)  # 'response' is replaced by 'text'
+df['cleaned_text'] = df['text'].apply(cleaner.clean_text)
 
 label_encoder = preprocessing.LabelEncoder()
-df['label'] = label_encoder.fit_transform(df['deceptive'].tolist())  # Assuming you want to predict 'deceptive'
+df['label'] = label_encoder.fit_transform(df['deceptive'].tolist())
 
 train_df, test_df = train_test_split(df, test_size=0.2)
 
@@ -39,7 +39,7 @@ def tokenize_data(examples):
 tokenized_train = train_dataset.map(tokenize_data, batched=True)
 tokenized_test = test_dataset.map(tokenize_data, batched=True)
 
-model = AutoModelForSequenceClassification.from_pretrained("distilbert-base-uncased", num_labels=2)  # Adjust num_labels if necessary
+model = AutoModelForSequenceClassification.from_pretrained("distilbert-base-uncased", num_labels=2) 
 
 data_collator = DataCollatorWithPadding(tokenizer=tokenizer)
 
